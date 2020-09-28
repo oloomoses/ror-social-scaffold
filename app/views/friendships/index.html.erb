@@ -1,0 +1,12 @@
+<h3>All friends</h3>
+
+<% @friends.each do |friend| %>
+  <%= friend.name %>
+<% end %><hr>
+
+<h3>Pending Friend Requests</h3>
+
+<% @pending.each do |friend| %>
+  <%= friend.name %>
+  <%= link_to 'Accept Friend Request', '#', class:'btn btn-primary' %>
+<% end %>
