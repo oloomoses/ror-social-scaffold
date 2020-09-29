@@ -23,7 +23,7 @@ class FriendshipsController < ApplicationController
 
   def update
     friend = User.find(params[:id])
-    @friendship = friend.confirm_friend(current_user)
+    @friendship = current_user.confirm_friend(friend)
 
     if @friendship
       # Friendship.update(confirmed: true)
