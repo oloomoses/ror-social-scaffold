@@ -1,3 +1,15 @@
 // Place all the styles related to the friendships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn {
+  background-color: green;
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: 10px;
+  color: white;
+}
+
+.btn:hover {
+  background-color: darkgreen;
+}
