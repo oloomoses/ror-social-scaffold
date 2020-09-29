@@ -1,4 +1,6 @@
 class FriendshipsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @friends = current_user.friends
 
@@ -20,8 +22,31 @@ class FriendshipsController < ApplicationController
   end
 
   def update
+    friend = User.find(params[:id])
+    @friendship = friend.confirm_friend(current_user)
+
+    if @friendship
+      # Friendship.update(confirmed: true)
+      flash[:notice] = 'Friendship confirmed'
+      redirect_back fallback_location: :back
+    else
+      flash[:notice] = 'Ooops!, Something went wrong.'
+      redirect_back fallback_location: :back
+    end
   end
 
   def destroy
+    friend = User.find(params[:id])
+
+    unfriend = current_user.friendships.find_by(friend_id: friend.id)
+
+    if unfriend
+      unfriend.destroy
+      flash[:notice] = 'Success!'
+      redirect_to friendships_path
+    else
+      flash[:notice] = 'Error! Cannot Unfriend'
+      redirect_to friendships_path
+    end
   end
 end

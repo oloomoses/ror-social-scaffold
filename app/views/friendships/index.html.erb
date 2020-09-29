@@ -2,11 +2,13 @@
 
 <% @friends.each do |friend| %>
   <%= friend.name %>
+
+  <%= link_to 'Unfriend', friendship_path(:id => friend), method: :delete, class: 'btn' %>
 <% end %><hr>
 
 <h3>Pending Friend Requests</h3>
 
 <% @pending.each do |friend| %>
   <%= friend.name %>
-  <%= link_to 'Accept Friend Request', '#', class:'btn btn-primary' %>
+  <%= link_to 'Accept Friend Request', friendship_path(:id => friend), method: :put, class:'btn' %>
 <% end %>
