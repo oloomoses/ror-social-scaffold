@@ -1,14 +1,24 @@
-<h3>All friends</h3>
-
-<% @friends.each do |friend| %>
-  <%= friend.name %>
-
-  <%= link_to 'Unfriend', friendship_path(:id => friend), method: :delete, class: 'btn' %>
-<% end %><hr>
-
-<h3>Pending Friend Requests</h3>
-
-<% @pending.each do |friend| %>
-  <%= friend.name %>
-  <%= link_to 'Accept Friend Request', friendship_path(:id => friend), method: :put, class:'btn' %>
-<% end %>
+<div class="container">
+<div class="all-friends">
+  <h3>All friends</h3>
+  
+  <% @friends.each do |friend| %>
+    <%= friend.name %> 
+    <br>
+    <br>
+    <%= link_to 'Unfriend', friendship_path(:id => friend), method: :delete, class: 'btn' %>
+    <br>
+    <br> 
+  <% end %>
+</div>
+<div class="pending-friends">
+  <h3>Pending Friend Requests</h3>
+  
+  <% @pending.each do |friend| %>
+    <%= friend.name %>
+    <br>
+    <br> 
+    <%= link_to 'Accept Friend Request', friendship_path(:id => friend), method: :put, class:'btn' %>
+  <% end %>
+</div>
+</div>
