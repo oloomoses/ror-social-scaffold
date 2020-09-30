@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.confirm_friend(friend)
 
     if @friendship
-      # Friendship.update(confirmed: true)
+      current_user.friends << friend
       flash[:notice] = 'Friendship confirmed'
       redirect_back fallback_location: :back
     else

@@ -12,9 +12,9 @@
   <% end %>
 </div>
 <div class="pending-friends">
-  <h3>Pending Friend Requests</h3>
+  <h3>Friend Requests</h3>
   
-  <% @pending.each do |friend| %>
+  <% @sent_requests.each do |friend| %>
     <%= friend.name %>
     <br>
     <br> 
