@@ -9,10 +9,6 @@ describe User, type: :model do
   end
 
   context 'User Model' do
-    it 'is valid with valid attributes' do
-      expect(subject).to be_valid
-    end
-
     it 'is not valid without name' do
       subject.name = nil
       expect(subject).to_not be_valid
