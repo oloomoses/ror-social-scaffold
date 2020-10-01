@@ -14,11 +14,6 @@ describe User, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is valid with a valid name' do
-      subject.name = 'teste'
-      expect(subject).to be_valid
-    end
-
     it 'is invalid with a name bigger than 20 characteres' do
       subject.name = 'asdfgfkgjfdoigjfdoigfjiofsjdfdklsfjdsfgsidjfdsgjhisodgjsdoifjsdoig'
       expect(subject).to_not be_valid
