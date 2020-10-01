@@ -10,7 +10,7 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @request = current_user.friendships.build(:friend_id => params[:friend_id])
+    @request = current_user.friendships.build(friend_id: params[:friend_id])
 
     if @request.save
       flash[:notice] = 'Request sent'

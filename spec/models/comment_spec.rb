@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Comment, :type => :model do 
+RSpec.describe Comment, type: :model do
   it 'should should have many posts' do
     comment = User.reflect_on_association(:comments)
     expect(comment.macro).to eq(:has_many)
