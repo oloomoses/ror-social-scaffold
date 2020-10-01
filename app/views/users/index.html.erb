@@ -5,7 +5,7 @@
         Name: <%= user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </li>
         <div class="friend-request">
-          <%= link_to 'Friend Request',  friendships_path(:friend_id => user), :method => :post, class: 'btn btn-primary' %> 
+          <%= unfriended_users(user) %>
           <span class="profile-link">
             <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
           </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.confirm_friend(friend)
 
     if @friendship
-      current_user.friends << friend
+      Friendship.create!(user_id: current_user.id, friend_id: friend.id, confirmed: true)
       flash[:notice] = 'Friendship confirmed'
       redirect_back fallback_location: :back
     else
@@ -36,12 +36,14 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    friend = User.find(params[:id])
+    @friend = User.find(params[:id])
 
-    unfriend = current_user.friendships.find_by(friend_id: friend.id)
+    friendship = Friendship.find_by(user_id: current_user.id, friend_id: @friend.id)
+    other_friendship = Friendship.find_by(user_id: @friend.id, friend_id: current_user.id)
 
-    if unfriend
-      unfriend.destroy
+    if friendship
+      friendship.destroy
+      other_friendship.destroy
       flash[:notice] = 'Success!'
       redirect_to friendships_path
     else
