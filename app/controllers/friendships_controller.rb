@@ -24,24 +24,24 @@ class FriendshipsController < ApplicationController
     friend = User.find(params[:id])
     @friendship = current_user.confirm_friend(friend)
 
-    if @friendship
-      Friendship.create!(user_id: current_user.id, friend_id: friend.id, confirmed: true)
-      flash[:notice] = 'Friendship confirmed'
-    else
-      flash[:notice] = 'Ooops!, Something went wrong.'
-    end
+    flash[:notice] = if @friendship
+                       'Friendship confirmed'
+                     else
+                       'Ooops!, Something went wrong.'
+                     end
     redirect_back fallback_location: :back
   end
 
   def destroy
-    @friend = User.find(params[:id])
+    friend = User.find(params[:id])
 
-    friendship = Friendship.find_by(user_id: current_user.id, friend_id: @friend.id)
-    other_friendship = Friendship.find_by(user_id: @friend.id, friend_id: current_user.id)
+    friendship = friend.friendships.find_by(friend_id: current_user.id)
+    other_friendship = current_user.friendships.find_by(friend_id: friend.id)
 
-    if friendship
-      friendship.destroy
-      other_friendship.destroy
+    if friendship || other_friendship
+      friendship&.destroy
+      other_friendship&.destroy
+      friend.friend_requests.delete(current_user)
       flash[:notice] = 'Success!'
     else
       flash[:notice] = 'Error! Cannot Unfriend'

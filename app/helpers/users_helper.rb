@@ -5,17 +5,16 @@ module UsersHelper
     pending = current_user.pending_friends.include?(user)
 
     if accept
-      button = content_tag(:br) do
+      content_tag(:br) do
         content_tag(:div) do
           link_to 'Accept Request', friendship_path(id: user), method: :put, class: 'btn'
         end
-      end
-
-      button += content_tag(:br) do
-        content_tag(:div) do
-          link_to 'Decline Request', friendship_path(id: user), method: :delete, class: 'btn btn-danger'
+      end +
+        content_tag(:br) do
+          content_tag(:div) do
+            link_to 'Decline Request', friendship_path(id: user), method: :delete, class: 'btn btn-danger'
+          end
         end
-      end
 
     elsif pending
       link_to 'Pending Request', '', class: 'btn'
