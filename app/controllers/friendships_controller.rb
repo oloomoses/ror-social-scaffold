@@ -26,10 +26,10 @@ class FriendshipsController < ApplicationController
 
     if @friendship
       Friendship.create!(friend_id: friend.id, user_id: current_user.id, confirmed: true)
-        flash[:notice] = 'Friendship confirmed'
-      else
-        flash[:notice] = 'Ooops!, Something went wrong.'
-      end
+      flash[:notice] = 'Friendship confirmed'
+    else
+      flash[:notice] = 'Ooops!, Something went wrong.'
+    end
     redirect_back fallback_location: :back
   end
 
