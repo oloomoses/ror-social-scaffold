@@ -8,18 +8,16 @@
 - Ruby on Rails v5.2.4
 
 ## Live Demo
-
-TBA
-
+https://agile-chamber-96976.herokuapp.com/
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
 
 On your terminal run:
 ```
-   git clone git@github.com:eduardoreisalvarenga/ror-social-scaffold.git
-   cd ror-social-scaffold
-   bundle install
+   $ git clone git@github.com:eduardoreisalvarenga/ror-social-scaffold.git
+   $ cd ror-social-scaffold
+   $ bundle install
 ```
 
 ### Prerequisites
