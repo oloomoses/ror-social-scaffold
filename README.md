@@ -1,6 +1,6 @@
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> This repo includes intial code for social media app with basic styling. Its purpose is to practice associations by implementing the mutual friendship similar to facebook. Additionally, write better queries that avoids n + 1 implementations, Implement unit and integration tests.
 
 ## Built With
 
@@ -13,8 +13,14 @@ TBA
 
 
 ## Getting Started
-
 To get a local copy up and running follow these simple example steps.
+
+On your terminal run:
+```
+   git clone git@github.com:eduardoreisalvarenga/ror-social-scaffold.git
+   cd ror-social-scaffold
+   bundle install
+```
 
 ### Prerequisites
 
@@ -37,16 +43,6 @@ Setup database with:
    rails db:migrate
 ```
 
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
-
-
 ### Usage
 
 Start server with:
@@ -63,15 +59,21 @@ Open `http://localhost:3000/` in your browser.
     rpsec --format documentation
 ```
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
 
 ## Authors
 
-TBA
+👤 **Eduardo**
+
+- Github: [@githubhandle](https://github.com/eduardoreisalvarenga)
+- Twitter: [@twitterhandle](https://twitter.com/eduardodosrei11)
+- Linkedin: [linkedin](https://www.linkedin.com/in/eduardo-alvarenga-44204818a/)
+
+
+👤 **Oloo Moses**
+
+- Github: [@githubhandle](https://github.com/oloomoses)
+- Twitter: [@twitterhandle](https://twitter.com/olooine)
+- Linkedin: [linkedin](https://www.linkedin.com/in/oloo-moses-528bb1b3/)
 
 ## 🤝 Contributing
 
