@@ -1,4 +1,6 @@
-describe Like, type: :model do
+require 'rails_helper'
+
+RSpec.describe Like, type: :model do
   it 'belongs to user' do
     like = Like.reflect_on_association(:user)
     expect(like.macro).to eq(:belongs_to)

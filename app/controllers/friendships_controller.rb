@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
   def index
     @friends = current_user.friends
 
-    @pending = current_user.pending_friends
+    @pending = current_user.pending_requests
 
     @sent_requests = current_user.friend_requests
   end
@@ -24,11 +24,12 @@ class FriendshipsController < ApplicationController
     friend = User.find(params[:id])
     @friendship = current_user.confirm_friend(friend)
 
-    flash[:notice] = if @friendship
-                       'Friendship confirmed'
-                     else
-                       'Ooops!, Something went wrong.'
-                     end
+    if @friendship
+      Friendship.create!(friend_id: friend.id, user_id: current_user.id, confirmed: true)
+      flash[:notice] = 'Friendship confirmed'
+    else
+      flash[:notice] = 'Ooops!, Something went wrong.'
+    end
     redirect_back fallback_location: :back
   end
 

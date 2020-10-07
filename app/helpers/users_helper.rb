@@ -2,7 +2,7 @@ module UsersHelper
   def unfriended_users(user)
     friend = current_user.friends.include?(user)
     accept = current_user.friend_requests.include?(user)
-    pending = current_user.pending_friends.include?(user)
+    pending = current_user.pending_requests.include?(user)
 
     if accept
       content_tag(:br) do

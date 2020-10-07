@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  it 'should should have many posts' do
-    comment = User.reflect_on_association(:comments)
-    expect(comment.macro).to eq(:has_many)
+  it 'a comment belongs to a post' do
+    comment = Comment.reflect_on_association(:post)
+    expect(comment.macro).to eq(:belongs_to)
   end
 
-  it 'should have many likes' do
-    like = User.reflect_on_association(:likes)
-    expect(like.macro).to eq(:has_many)
+  it 'should belong to a user' do
+    comment = Comment.reflect_on_association(:user)
+    expect(comment.macro).to eq(:belongs_to)
   end
 end
