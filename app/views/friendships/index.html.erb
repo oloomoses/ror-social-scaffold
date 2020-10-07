@@ -1,0 +1,38 @@
+<div class="container">
+<div class="all-friends">
+  <h3>All friends</h3>
+  
+  <% @friends.each do |friend| %>
+    <br><br>
+    <div>
+      <b><i>You are friends with <%= friend.name %></i></b>
+    </div><br>
+    
+    <div>
+      <%= link_to 'Unfriend', friendship_path(:id => friend), method: :delete, class: 'btn' %>
+    </div><br>
+
+  <% end %>
+
+</div>
+
+
+
+<div class="pending-friends">
+  <h3>Friend Requests</h3>
+  
+  <% @sent_requests.each do |friend| %>
+    <br>
+    <div>
+      <b><i>Friend request from <%= friend.name %></i></b>
+    </div><br>
+    <div>
+      <%= link_to 'Accept Request', friendship_path(:id => friend), method: :put, class:'btn' %>
+    </div><br>
+    <br>
+    <div>
+      <%= link_to 'Decline Request', friendship_path(:id => friend), method: :delete, class: 'btn btn-danger'%>
+    </div><br>
+  <% end %>
+</div>
+</div>
