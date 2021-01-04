@@ -1,6 +1,6 @@
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to practice associations by implementing the mutual friendship similar to facebook. Additionally, write better queries that avoids n + 1 implementations, Implement unit and integration tests.
+> A social media application built with Ruby on Rails with the typical features of a social media application like, posting, commenting on friend's post, like or dislike a post, invite another user to friendship, accept or deny a friend request.
 
 ## Built With
 
