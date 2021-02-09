@@ -8,8 +8,7 @@
 - Ruby on Rails v5.2.4
 
 ## Live Demo
-
-    https://agile-chamber-96976.herokuapp.com/
+   ### [LIVE VERSION](https://agile-chamber-96976.herokuapp.com/)
 
 
 ## Getting Started
